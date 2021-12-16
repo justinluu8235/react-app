@@ -13,6 +13,7 @@ import Login from './Login';
 import Cards from './Cards';
 import Showcase from './Showcase';
 import Landing from './Landing';
+import Forum from './Forum';
 
 //function component -> made out of a function
 // function App() {
@@ -44,8 +45,9 @@ class App extends Component {
             {/* <Cover/> */}
             {/* <Login/> */}
             {/* <Cards/> */}
-            <Showcase/>
+            {/* <Showcase/> */}
             {/* <Landing/> */}
+            <Forum/>
 
           </div>
     )
