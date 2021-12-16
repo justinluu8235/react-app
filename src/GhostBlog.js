@@ -1,7 +1,54 @@
 import React, { Component } from 'react';
 import './GhostBlog.css';
+import axios from 'axios';
+
+
 
 class GhostBlog extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { recipes: [] };
+    }
+
+    componentDidMount() {
+        let query = "chicken";
+        let API_KEY = "2901de0d76fa46d1a71c015c429873f6";
+        axios
+            .get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${API_KEY}&number=6`)
+            .then((response) => {
+                this.setState({
+                    recipes: response.data.results
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    displayRecipes() {
+        let displayRecipeList = this.state.recipes.map((recipe, idx) => {
+            return (
+                <div class="column post is-4" key={idx}>
+                <article class="columns is-multiline">
+                    <div class="column is-12 post-img">
+                        <img src={recipe.image} alt="Featured Image" />
+                    </div>
+                    <div class="column is-12 featured-content ">
+                        <h3 class="heading post-category">Category Name</h3>
+                        <h1 class="title post-title">{recipe.title}</h1>
+                        <p class="post-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus ratione harum eaque, animi nulla tempore quis, quam voluptatum.</p>
+                        <br />
+                        <a href="#" class="button is-primary">Read More</a>
+                    </div>
+                </article>
+            </div>
+            );
+        });
+
+        return displayRecipeList;
+    }
+
+
     render() {
         return (
             <div>
@@ -99,48 +146,7 @@ class GhostBlog extends Component {
                                             </div>
                                         </article>
                                     </div>
-                                    <div class="column post is-4">
-                                        <article class="columns is-multiline">
-                                            <div class="column is-12 post-img">
-                                                <img src="https://cdn.emk.dev/templates/post-img.png" alt="Featured Image" />
-                                            </div>
-                                            <div class="column is-12 featured-content ">
-                                                <h3 class="heading post-category">Category Name</h3>
-                                                <h1 class="title post-title">Slightly Longer Blog Post Title</h1>
-                                                <p class="post-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus ratione harum eaque, animi nulla tempore quis, quam voluptatum.</p>
-                                                <br />
-                                                <a href="#" class="button is-primary">Read More</a>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <div class="column post is-4">
-                                        <article class="columns is-multiline">
-                                            <div class="column is-12 post-img">
-                                                <img src="https://cdn.emk.dev/templates/post-img.png" alt="Featured Image" />
-                                            </div>
-                                            <div class="column is-12 featured-content ">
-                                                <h3 class="heading post-category">Category Name</h3>
-                                                <h1 class="title post-title">Slightly Longer Blog Post Title</h1>
-                                                <p class="post-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus ratione harum eaque, animi nulla tempore quis, quam voluptatum.</p>
-                                                <br />
-                                                <a href="#" class="button is-primary">Read More</a>
-                                            </div>
-                                        </article>
-                                    </div>
-                                    <div class="column post is-4">
-                                        <article class="columns is-multiline">
-                                            <div class="column is-12 post-img">
-                                                <img src="https://cdn.emk.dev/templates/post-img.png" alt="Featured Image" />
-                                            </div>
-                                            <div class="column is-12 featured-content ">
-                                                <h3 class="heading post-category">Category Name</h3>
-                                                <h1 class="title post-title">Slightly Longer Blog Post Title</h1>
-                                                <p class="post-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus ratione harum eaque, animi nulla tempore quis, quam voluptatum.</p>
-                                                <br />
-                                                <a href="#" class="button is-primary">Read More</a>
-                                            </div>
-                                        </article>
-                                    </div>
+                                    {this.displayRecipes()}
                                 </div>
                             </div>
                         </div>
