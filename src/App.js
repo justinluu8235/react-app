@@ -13,7 +13,9 @@ import './App.css';
 // import Cards from './Cards';
 // import Showcase from './Showcase';
 // import Landing from './Landing';
-import Forum from './Forum';
+// import Forum from './Forum';
+// import Admin from './Admin';
+import GhostBlog  from './GhostBlog';
 
 //function component -> made out of a function
 // function App() {
@@ -47,7 +49,9 @@ class App extends Component {
             {/* <Cards/> */}
             {/* <Showcase/> */}
             {/* <Landing/> */}
-            <Forum/>
+            {/* <Forum/> */}
+            {/* <Admin/> */}
+            <GhostBlog/>
 
           </div>
     )
