@@ -1,7 +1,121 @@
 import React, { Component } from 'react';
 import './Forum.css'
+import axios from 'axios';
+
+
+const comment = {
+    message: 'I love coding. All day everyday..',
+    author: '@Thordore'
+}
+
+const commentList = [
+    {
+        message: 'I love bball....',
+        author: '@stephcurry'
+    },
+    {
+        message: 'What are those???? ....',
+        author: '@mike'
+    },
+    {
+        message: 'What up ...',
+        author: '@john'
+    },
+    {
+        message: 'Comment here ...',
+        author: '@jake'
+    },
+    {
+        message: 'Lets go ...',
+        author: '@tombrady'
+    },
+]
+
+const displayCommentList = commentList.map((c, idx) => {
+    return (
+        <article className="post" key={idx}>
+            <h4>{c.message}</h4>
+            <div className="media">
+                <div className="media-left">
+                    <p className="image is-32x32">
+                        <img src="http://bulma.io/images/placeholders/128x128.png" />
+                    </p>
+                </div>
+                <div className="media-content">
+                    <div className="content">
+                        <p>
+                            <a href="#">{c.author}</a> replied 34 minutes ago &nbsp;
+                            <span className="tag">Question</span>
+                        </p>
+                    </div>
+                </div>
+                <div className="media-right">
+                    <span className="has-text-grey-light"><i className="fa fa-comments"></i> 1</span>
+                </div>
+            </div>
+        </article>
+
+    )
+})
+
+
 
 class Forum extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { rockets: [] };
+    }
+
+    componentDidMount() {
+        axios
+            .get("https://api.spacexdata.com/v4/rockets")
+            .then((response) => {
+                // console.log(response.data);
+                this.setState({
+                    rockets: response.data,
+                });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
+    displayRockets() {
+        let displayRocketList = this.state.rockets.map((r, idx) => {
+            return (
+                <article className="post" key={idx}>
+                    <h4>{r.name}</h4>
+                    <div className="media">
+                        <div className="media-left">
+                            <p className="image is-32x32">
+                                <img
+                                    src="http://bulma.io/images/placeholders/128x128.png"
+                                    alt=""
+                                />
+                            </p>
+                        </div>
+                        <div className="media-content">
+                            <div className="content">
+                                <p>
+                                    <a href={r.wikipedia} target="_blank">View Rocket Wiki</a>
+                                    <span className="tag">Rocket</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div className="media-right">
+                            <span className="has-text-grey-light">
+                                <i className="fa fa-comments"></i> 1
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            );
+        });
+
+        return displayRocketList;
+    }
+
     render() {
         return (
 
@@ -10,7 +124,7 @@ class Forum extends Component {
                     <div className="container">
                         <div className="navbar-brand">
                             <a className="navbar-item" href="../">
-                                <img src="../images/bulma.png" width="112" height="28"/>
+                                <img src="../images/bulma.png" width="112" height="28" />
                             </a>
                             <div className="navbar-burger burger" data-target="topNav">
                                 <span></span>
@@ -65,7 +179,7 @@ class Forum extends Component {
                             </div>
                             <div className="navbar-end">
                                 <div className="navbar-item">
-                                    <input className="input" type="search" placeholder="Search forum..."/>
+                                    <input className="input" type="search" placeholder="Search forum..." />
                                 </div>
                             </div>
                         </div>
@@ -86,24 +200,24 @@ class Forum extends Component {
                                     <li><span className="tag is-dark is-medium ">Payments</span></li>
                                     <li><span className="tag is-success is-medium ">Transfers</span></li>
                                     <li><span className="tag is-warning is-medium ">Balance</span></li>
-                                    <li><span className="tag is-medium ">Question</span></li>
+                                    <li><span className="tag is-medium " title="Question">Question</span></li>
                                 </ul>
                             </aside>
                         </div>
                         <div className="column is-9">
                             <div className="box content">
                                 <article className="post">
-                                    <h4>Bulma: How do you center a button in a box?</h4>
+                                    <h4>{comment.message}</h4>
                                     <div className="media">
                                         <div className="media-left">
                                             <p className="image is-32x32">
-                                                <img src="http://bulma.io/images/placeholders/128x128.png"/>
+                                                <img src="http://bulma.io/images/placeholders/128x128.png" />
                                             </p>
                                         </div>
                                         <div className="media-content">
                                             <div className="content">
                                                 <p>
-                                                    <a href="#">@jsmith</a> replied 34 minutes ago &nbsp;
+                                                    <a href="#">{comment.author}</a> replied 34 minutes ago &nbsp;
                                                     <span className="tag">Question</span>
                                                 </p>
                                             </div>
@@ -118,7 +232,7 @@ class Forum extends Component {
                                     <div className="media">
                                         <div className="media-left">
                                             <p className="image is-32x32">
-                                                <img src="http://bulma.io/images/placeholders/128x128.png"/>
+                                                <img src="http://bulma.io/images/placeholders/128x128.png" />
                                             </p>
                                         </div>
                                         <div className="media-content">
@@ -139,7 +253,7 @@ class Forum extends Component {
                                     <div className="media">
                                         <div className="media-left">
                                             <p className="image is-32x32">
-                                                <img src="http://bulma.io/images/placeholders/128x128.png"/>
+                                                <img src="http://bulma.io/images/placeholders/128x128.png" />
                                             </p>
                                         </div>
                                         <div className="media-content">
@@ -160,7 +274,7 @@ class Forum extends Component {
                                     <div className="media">
                                         <div className="media-left">
                                             <p className="image is-32x32">
-                                                <img src="http://bulma.io/images/placeholders/128x128.png"/>
+                                                <img src="http://bulma.io/images/placeholders/128x128.png" />
                                             </p>
                                         </div>
                                         <div className="media-content">
@@ -181,7 +295,7 @@ class Forum extends Component {
                                     <div className="media">
                                         <div className="media-left">
                                             <p className="image is-32x32">
-                                                <img src="http://bulma.io/images/placeholders/128x128.png"/>
+                                                <img src="http://bulma.io/images/placeholders/128x128.png" />
                                             </p>
                                         </div>
                                         <div className="media-content">
@@ -202,7 +316,7 @@ class Forum extends Component {
                                     <div className="media">
                                         <div className="media-left">
                                             <p className="image is-32x32">
-                                                <img src="http://bulma.io/images/placeholders/128x128.png"/>
+                                                <img src="http://bulma.io/images/placeholders/128x128.png" />
                                             </p>
                                         </div>
                                         <div className="media-content">
@@ -218,6 +332,7 @@ class Forum extends Component {
                                         </div>
                                     </div>
                                 </article>
+                                {this.displayRockets()}
                             </div>
                         </div>
                     </div>

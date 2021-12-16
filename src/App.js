@@ -3,16 +3,16 @@ import React, {Component} from 'react'
 import './App.css';
 
 //Components
-import Racing from './Racing';
-import Basketball from './Basketball';
-import Soccer from './Soccer';
-import Badminton from './Badminton';
-import Football from './Football';
-import Cover from './Cover';
-import Login from './Login';
-import Cards from './Cards';
-import Showcase from './Showcase';
-import Landing from './Landing';
+// import Racing from './Racing';
+// import Basketball from './Basketball';
+// import Soccer from './Soccer';
+// import Badminton from './Badminton';
+// import Football from './Football';
+// import Cover from './Cover';
+// import Login from './Login';
+// import Cards from './Cards';
+// import Showcase from './Showcase';
+// import Landing from './Landing';
 import Forum from './Forum';
 
 //function component -> made out of a function
