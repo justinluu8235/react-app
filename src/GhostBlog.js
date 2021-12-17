@@ -10,10 +10,10 @@ class GhostBlog extends Component {
         this.state = { recipes: [] };
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         let query = "chicken";
         let API_KEY = "2901de0d76fa46d1a71c015c429873f6";
-        axios
+        await axios
             .get(`https://api.spoonacular.com/recipes/complexSearch?query=${query}&apiKey=${API_KEY}&number=6`)
             .then((response) => {
                 this.setState({
@@ -28,17 +28,17 @@ class GhostBlog extends Component {
     displayRecipes() {
         let displayRecipeList = this.state.recipes.map((recipe, idx) => {
             return (
-                <div class="column post is-4" key={idx}>
-                <article class="columns is-multiline">
-                    <div class="column is-12 post-img">
+                <div className="column post is-4" key={idx}>
+                <article className="columns is-multiline">
+                    <div className="column is-12 post-img">
                         <img src={recipe.image} alt="Featured Image" />
                     </div>
-                    <div class="column is-12 featured-content ">
-                        <h3 class="heading post-category">Category Name</h3>
-                        <h1 class="title post-title">{recipe.title}</h1>
-                        <p class="post-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus ratione harum eaque, animi nulla tempore quis, quam voluptatum.</p>
+                    <div className="column is-12 featured-content ">
+                        <h3 className="heading post-category">Category Name</h3>
+                        <h1 className="title post-title" title="recipe-title">{recipe.title}</h1>
+                        <p className="post-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus ratione harum eaque, animi nulla tempore quis, quam voluptatum.</p>
                         <br />
-                        <a href="#" class="button is-primary">Read More</a>
+                        <a href="#" className="button is-primary">Read More</a>
                     </div>
                 </article>
             </div>
@@ -52,31 +52,31 @@ class GhostBlog extends Component {
     render() {
         return (
             <div>
-                <section class="hero is-medium">
-                    <div class="hero-head">
-                        <div class="container">
-                            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <section className="hero is-medium">
+                    <div className="hero-head">
+                        <div className="container">
+                            <nav className="navbar" role="navigation" aria-label="main navigation">
 
-                                <div id="navbarBasicExample" class="navbar-menu">
-                                    <div class="navbar-start">
-                                        <a class="navbar-item is-active">
+                                <div id="navbarBasicExample" className="navbar-menu">
+                                    <div className="navbar-start">
+                                        <a className="navbar-item is-active">
                                             Home
                                         </a>
-                                        <a class="navbar-item">
-                                            Blog Posts
+                                        <a className="navbar-item" data-testid="myRecipesLink">
+                                            My Recipes
                                         </a>
                                     </div>
 
-                                    <div class="navbar-end">
-                                        <div class="navbar-item">
+                                    <div className="navbar-end">
+                                        <div className="navbar-item">
                                             <a href="#">
-                                                <i class="fab fa-facebook"></i>
+                                                <i className="fab fa-facebook"></i>
                                             </a>
                                             <a href="#">
-                                                <i class="fab fa-twitter"></i>
+                                                <i className="fab fa-twitter"></i>
                                             </a>
                                             <a href="#">
-                                                <i class="fas fa-rss-square"></i>
+                                                <i className="fas fa-rss-square"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -84,32 +84,32 @@ class GhostBlog extends Component {
                             </nav>
                         </div>
                     </div>
-                    <div class="hero-body">
-                        <div class="container has-text-centered">
+                    <div className="hero-body">
+                        <div className="container has-text-centered">
                             <img src="https://cdn.emk.dev/templates/bulma-logo-light.png" width="150" height="40" />
-                            <h2 class="subtitle">
+                            <h2 className="subtitle">
                                 Ghost's Casper theme made with Bulma
                             </h2>
                         </div>
                     </div>
                 </section>
-                <section class="blog-posts">
-                    <div class="container">
-                        <div class="columns">
-                            <div class="column is-10 is-offset-1">
-                                <div class="columns featured-post is-multiline">
-                                    <div class="column is-12 post">
-                                        <article class="columns featured">
-                                            <div class="column is-7 post-img ">
+                <section className="blog-posts">
+                    <div className="container">
+                        <div className="columns">
+                            <div className="column is-10 is-offset-1">
+                                <div className="columns featured-post is-multiline">
+                                    <div className="column is-12 post">
+                                        <article className="columns featured">
+                                            <div className="column is-7 post-img ">
                                                 <img src="https://cdn.emk.dev/templates/featured-image.png" alt="" />
                                             </div>
-                                            <div class="column is-5 featured-content va">
+                                            <div className="column is-5 featured-content va">
                                                 <div>
-                                                    <h3 class="heading post-category">Category Name</h3>
-                                                    <h1 class="title post-title">Blog Posts Template</h1>
-                                                    <p class="post-excerpt">This template is based off of the official default blog template created by the fine folks over at <a href="https://ghost.io">Ghost</a>. If you are looking for a fully featured blog platform, I highly recommend checking them out!</p>
+                                                    <h3 className="heading post-category">Category Name</h3>
+                                                    <h1 className="title post-title" data-testid="top-recipe" >Top Recipe</h1>
+                                                    <p className="post-excerpt">This template is based off of the official default blog template created by the fine folks over at <a href="https://ghost.io">Ghost</a>. If you are looking for a fully featured blog platform, I highly recommend checking them out!</p>
                                                     <br />
-                                                    <a href="#" class="button is-primary">Read More</a>
+                                                    <a href="#" className="button is-primary">Read More</a>
                                                 </div>
 
                                             </div>
@@ -117,32 +117,32 @@ class GhostBlog extends Component {
                                     </div>
                                 </div>
                                 <hr />
-                                <div class="columns is-multiline">
-                                    <div class="column post is-6">
-                                        <article class="columns is-multiline">
-                                            <div class="column is-12 post-img">
+                                <div className="columns is-multiline">
+                                    <div className="column post is-6">
+                                        <article className="columns is-multiline">
+                                            <div className="column is-12 post-img">
                                                 <img src="https://cdn.emk.dev/templates/post-img.png" alt="Featured Image" />
                                             </div>
-                                            <div class="column is-12 featured-content ">
-                                                <h3 class="heading post-category">Category Name</h3>
-                                                <h1 class="title post-title">Slightly Longer Blog Post Title</h1>
-                                                <p class="post-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus ratione harum eaque, animi nulla tempore quis, quam voluptatum.</p>
+                                            <div className="column is-12 featured-content ">
+                                                <h3 className="heading post-category">Category Name</h3>
+                                                <h1 className="title post-title">Slightly Longer Blog Post Title</h1>
+                                                <p className="post-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus ratione harum eaque, animi nulla tempore quis, quam voluptatum.</p>
                                                 <br />
-                                                <a href="#" class="button is-primary">Read More</a>
+                                                <a href="#" className="button is-primary">Read More</a>
                                             </div>
                                         </article>
                                     </div>
-                                    <div class="column post is-6">
-                                        <article class="columns is-multiline">
-                                            <div class="column is-12 post-img">
-                                                <img src="https://cdn.emk.dev/templates/post-img.png" alt="Featured Image" />
+                                    <div className="column post is-6">
+                                        <article className="columns is-multiline">
+                                            <div className="column is-12 post-img">
+                                                <img data-testid="image" src="https://cdn.emk.dev/templates/post-img.png" alt="Featured Image" />
                                             </div>
-                                            <div class="column is-12 featured-content ">
-                                                <h3 class="heading post-category">Category Name</h3>
-                                                <h1 class="title post-title">Slightly Longer Blog Post Title</h1>
-                                                <p class="post-excerpt">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus ratione harum eaque, animi nulla tempore quis, quam voluptatum.</p>
+                                            <div className="column is-12 featured-content ">
+                                                <h3 className="heading post-category">Category Name</h3>
+                                                <h1 className="title post-title">Slightly Longer Blog Post Title</h1>
+                                                <p className="post-excerpt" title="test-important-post">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus ratione harum eaque, animi nulla tempore quis, quam voluptatum.</p>
                                                 <br />
-                                                <a href="#" class="button is-primary">Read More</a>
+                                                <a href="#" className="button is-primary">Read More</a>
                                             </div>
                                         </article>
                                     </div>
