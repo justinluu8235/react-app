@@ -15,7 +15,10 @@ import './App.css';
 // import Landing from './Landing';
 // import Forum from './Forum';
 // import Admin from './Admin';
-import GhostBlog  from './GhostBlog';
+// import GhostBlog  from './GhostBlog';
+// import Hero from './Hero';
+// import Absurd from './Absurd';
+import Band from './Band';
 
 //function component -> made out of a function
 // function App() {
@@ -51,7 +54,10 @@ class App extends Component {
             {/* <Landing/> */}
             {/* <Forum/> */}
             {/* <Admin/> */}
-            <GhostBlog/>
+            {/* <GhostBlog/> */}
+            {/* <Hero/> */}
+            {/* <Absurd/> */}
+            <Band/>
 
           </div>
     )

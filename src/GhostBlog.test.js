@@ -20,12 +20,12 @@ test('renders a link for my recipes', () =>{
     expect(myRecipeElement).toBeInTheDocument();
 })
 
-test('renders a Chicken Suya', () =>{
-    render(<GhostBlog/>);
-    const chickenElement = screen.findByText(/Chicken Suya/i);
+// test('renders a Chicken Suya', () =>{
+//     render(<GhostBlog/>);
+//     const chickenElement = screen.findByText(/Chicken Suya/i);
     
-    expect(chickenElement).toBeInTheDocument();
-})
+//     expect(chickenElement).toBeInTheDocument();
+// })
 
 test('renders a Top Recipe text', () =>{
     render(<GhostBlog/>);
@@ -33,5 +33,17 @@ test('renders a Top Recipe text', () =>{
     expect(textElement).toBeInTheDocument();
 })
 
+
+test('renders a Top Recipe post', () =>{
+    render(<GhostBlog/>);
+    const textElement = screen.getByTestId(/topRecipe-Post/i);
+    expect(textElement).toBeInTheDocument();
+})
+
+test('renders a button to read more for top recipe post', () =>{
+    render(<GhostBlog/>);
+    const textElement = screen.getByTestId(/topRecipePostButton/i);
+    expect(textElement).toBeInTheDocument();
+})
 
 

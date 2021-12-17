@@ -14,11 +14,18 @@
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
+    <link rel="shortcut icon" href="../images/fav_icon.png" type="image/x-icon">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <!-- Bulma Version 0.9.0-->
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.0/css/bulma.min.css" />
+
+    <!-- For Absurd -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- For Band -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"></script>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -55,6 +62,8 @@
     integrity="sha384-WAsFbnLEQcpCk8lM1UTWesAf5rGTCvb2Y+8LvyjAAcxK1c3s5c0L+SYOgxvc6PWG"
     crossOrigin="anonymous"
 ></script>
+
+
 <script>
   AOS.init({
     easing: "ease-out",
@@ -62,6 +71,21 @@
   });
 </script>
 
+<!-- For Absurd -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/TypewriterJS/2.13.1/core.min.js"></script>
+<script>
+  new Typewriter('#typewriter', {
+    strings: ['typewriter', 'Effect', 'typewriter.js', 'example'],
+    autoStart: true,
+    loop: true,
+  });
+</script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+    once: true
+  });
+</script>
 
 
   </body>

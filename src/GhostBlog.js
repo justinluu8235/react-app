@@ -107,9 +107,9 @@ class GhostBlog extends Component {
                                                 <div>
                                                     <h3 className="heading post-category">Category Name</h3>
                                                     <h1 className="title post-title" data-testid="top-recipe" >Top Recipe</h1>
-                                                    <p className="post-excerpt">This template is based off of the official default blog template created by the fine folks over at <a href="https://ghost.io">Ghost</a>. If you are looking for a fully featured blog platform, I highly recommend checking them out!</p>
+                                                    <p className="post-excerpt" data-testid="topRecipe-Post">Post Text<a href="https://ghost.io">Ghost</a>. If you are looking for a fully featured blog platform, I highly recommend checking them out!</p>
                                                     <br />
-                                                    <a href="#" className="button is-primary">Read More</a>
+                                                    <a href="#" className="button is-primary" data-testid="topRecipePostButton">Read More</a>
                                                 </div>
 
                                             </div>
